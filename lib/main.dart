@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'loginScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(MyApp());
 }
 
@@ -13,7 +18,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Time Keeper',
         theme: ThemeData(primarySwatch: Colors.blue),
-        home: MainPage(),
+        home: LoginScreen(),
       );
 }
 
